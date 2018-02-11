@@ -1,0 +1,15 @@
+[Unit]
+Description=Send notifications to slack on boot and reboot
+
+[Service]
+Type=oneshot
+RemainAfterExit=yes
+EnvironmentFile=/etc/metadata
+ExecStart=/usr/local/bin/slack-notifier \
+"Hi! I'm ${INSTANCE_ID} and my IP is: ${PRIVATE_IP}.\nI finished booting into ${VPC_NAME} ${AVAILABILITY_ZONE}."
+ExecStop=/usr/local/bin/slack-notifier \
+ -i ":poop:" \
+"Shutdown: ${INSTANCE_ID} in ${VPC_NAME} ${AVAILABILITY_ZONE} is shutting down."
+
+[Install]
+WantedBy=multi-user.target

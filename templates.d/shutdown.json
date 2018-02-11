@@ -1,0 +1,23 @@
+{
+  "shutdown": {
+    "username": "aws-ec2",
+    "webhook_url": "https://slack-webhook-url",
+    "channel": "#general",
+    "icon_emoji": ":disappointed:",
+    "attachments": [
+      {
+	      "fallback": "Shutting down {{ ec2.instanceId }} in {{ ec2.vpc_name }} {{ ec2.availabilityZone }}",
+        "pretext": "Shutting down {{ ec2.instanceId }} in {{ ec2.vpc_name }} {{ ec2.availabilityZone }}",
+	      "color": "#36a64f",
+      	"fields": [
+      		{
+      			"title": "Instance shutdown",
+      			"value": "Shutting down {{ ec2.instanceId }} in {{ ec2.vpc_name }} {{ ec2.availabilityZone }}",
+      			"short": false
+      		}
+      	]
+      }
+    ]
+
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "startup": {
+    "username": "aws-ec2",
+    "webhook_url": "https://slack-webhook-url",
+    "channel": "#general",
+    "icon_emoji": ":smile:",
+    "attachments": [
+      {
+	      "fallback": "Hi! I'm {{ ec2.instanceId }}. My IP is {{ ec2.privateIp }}.\nI just finished booting in {{ ec2.vpc_name }} {{ ec2.availabilityZone }}",
+	      "color": "#36a64f",
+      	"fields": [
+      		{
+      			"title": "Instance online",
+      			"value": "Hi! I'm {{ ec2.instanceId }}. My IP is {{ ec2.privateIp }}.\nI just finished booting in {{ ec2.vpc_name }} {{ ec2.availabilityZone }}",
+      			"short": false
+      		}
+      	]
+      }
+    ]
+  }
+}
